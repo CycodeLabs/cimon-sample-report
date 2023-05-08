@@ -1,0 +1,26 @@
+name: Cimon Sample Report Prevent
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: cycodelabs/cimon-action@v0
+        with:
+          client-id: ${{ secrets.CIMON_CLIENT_ID }}
+          secret: ${{ secrets.CIMON_SECRET }}
+          report-process-tree: true
+          prevent: true
+          allowed-hosts: >
+            cycode.com
+
+      - uses: actions/checkout@v3
+      
+      - name: Simple Connection
+        run: curl https://cycode.com
+
+      - name: Forbidden
+        run: curl https://google.com

@@ -12,7 +12,6 @@ jobs:
         with:
           client-id: ${{ secrets.CIMON_CLIENT_ID }}
           secret: ${{ secrets.CIMON_SECRET }}
-          report-process-tree: true
 
       - uses: actions/checkout@v3
       

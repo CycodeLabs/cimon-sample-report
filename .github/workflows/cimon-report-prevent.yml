@@ -15,12 +15,12 @@ jobs:
           report-process-tree: true
           prevent: true
           allowed-hosts: >
-            cycode.com
+            *.cycode.com
 
       - uses: actions/checkout@v3
-      
-      - name: Simple Connection
-        run: curl https://cycode.com
 
-      - name: Forbidden
-        run: curl https://google.com
+      - name: Connect to Cycode
+        run: curl https://app.cycode.com/account/login --http1.1
+
+      - name: Connect to Google (Forbidden)
+        run: curl google.com --http1.1

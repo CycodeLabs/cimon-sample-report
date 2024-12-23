@@ -16,5 +16,8 @@ jobs:
 
       - uses: actions/checkout@v3
       
-      - name: Simple Connection
-        run: curl https://cycode.com
+      - name: Connect to Cycode
+        run: curl https://app.cycode.com/account/login --http1.1
+
+      - name: Connect to Google
+        run: curl google.com --http1.1
